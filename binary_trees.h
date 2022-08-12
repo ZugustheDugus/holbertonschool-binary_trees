@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stddef.h>
+#include <limits.h>
 
 /**
  * struct binary_tree_s - Binary tree node
@@ -22,6 +23,7 @@ struct binary_tree_s
 };
 
 typedef struct binary_tree_s binary_tree_t;
+typedef struct binary_tree_s bst_t;
 
 void binary_tree_print(const binary_tree_t *);
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
@@ -43,5 +45,14 @@ int binary_tree_is_full(const binary_tree_t *tree);
 int binary_tree_is_perfect(const binary_tree_t *tree);
 binary_tree_t *binary_tree_sibling(binary_tree_t *node);
 binary_tree_t *binary_tree_uncle(binary_tree_t *node);
+
+int binary_tree_is_bst(const binary_tree_t *tree);
+int bst_tree(const binary_tree_t *tree, int min, int max);
+bst_t *bst_insert(bst_t **tree, int value);
+int bst_find(bst_t *tree, int value);
+bst_t *bst_insert_here(bst_t *tree, bst_t *node);
+bst_t *array_to_bst(int *array, size_t size);
+bst_t *bst_search(const bst_t *tree, int value);
+bst_t *bst_search_recursive(bst_t *tree, int value);
 
 #endif
